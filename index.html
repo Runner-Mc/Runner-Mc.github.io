@@ -1,57 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio of John Doe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Walker — Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/projects.css">
 </head>
 <body>
-    <header>
-        <h1 style="text-align:center;">John Doe</h1>
-        <p style="text-align:center;">Home | Projects | Blogs | Contact</p>
-    </header>
-    <h2 style="text-align:center;">Web Developer and Designer</h2>
-    <table border="1" width="100%">
-        <tr>
-            <td>
-                <h3>Portfolio Highlights</h3>
-                <ul>
-                    <li>Responsive HTML Layout</li>
-                    <li>E-commerce Storefront</li>
-                    <li>Interactive Form Design</li>
-                    <li>Event Countdown Widget</li>
-                    <li>Prototype Landing Pages</li>
-                </ul>
-            </td>
-            <td>
-                <h3>Career Achievements</h3>
-                <p>Frontend Developer [Intern] at XYZ<br>Headed major product redesigns resulting in a 40% increase in user engagement.<br><a href="#">View My LinkedIn Profile</a></p>
-                <h3>Community Involvement</h3>
-                <p>Active participant in local and online developer forums. Regularly contribute to web development blogs and GitHub projects.<br><a href="#">Visit My GitHub</a></p>
-            </td>
-            <td>
-                <h3>Academic Qualifications</h3>
-                <p>B.Tech (Computer Science) from ABC University</p>
-                <p>Specializations:</p>
-                <ul>
-                    <li>Systems Analysis</li>
-                    <li>Advanced JavaScript Techniques</li>
-                    <li>Web Accessibility Standards</li>
-                    <li>Performance Optimization in Web Applications</li>
-                    <li>Cloud Computing Infrastructure</li>
-                    <li>Security in Web Applications</li>
-                    <li>Advanced Algorithms</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <h3>Peer Reviews</h3>
-    <table border="1" width="100%">
-        <tr>
-            <td>John Doe consistently delivers high-quality, innovative solutions that exceed project expectations. - Steven, Project Lead</td>
-            <td>John Doe is known for his precise attention to detail and his ability to mentor younger developers. - David, UI Designer</td>
-            <td>John's approach to problem-solving has been instrumental in our success. - Sarah, Frontend Developer</td>
-        </tr>
-    </table>
+
+  <!-- ===== ABOUT BOX ===== -->
+  <header class="about-box">
+    <div class="about-box__portrait">
+      <div class="about-box__portrait-frame">AW</div>
+    </div>
+
+    <div class="about-box__content">
+      <p class="about-box__eyebrow"></p>
+      <h1 class="about-box__name">Alex Walker</h1>
+      <p class="about-box__bio">
+        Aspiring new gameplay programmer. I enjoy figuring out solutions to new problems,
+        and building robust code. Coding in C# and C++, with experience in Unity, 
+        Unreal and SFML.
+      </p>
+
+      <nav class="about-box__links">
+        <a href="https://github.com/Runner-Mc" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/alex-walker-113a39345/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:aiw2005@icloud.com">Email</a>
+        <!--<a href="./resume.pdf">CV</a>-->
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== PROJECTS ===== -->
+  <main class="projects">
+
+    <!-- Tabs for the project section -->
+    <div class="projects__tabs" role="tablist" aria-label="Project categories">
+        <span class="tab-indicator" aria-hidden="true"></span>
+        <button class="tab is-active" role="tab" aria-selected="true" data-tab="web">University</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="mobile">Game Jams</button>
+    </div>
+
+    <!-- ===== Project Displaying Section ===== -->
+    <div class="projects__frame">
+
+      <div class="projects__panel-wrap">
+
+      <!-- University -->
+      <section class="panel is-active" id="panel-web" role="tabpanel">
+
+        <article class="row">
+          <div class="row__media">
+            <img src="assets/project-placeholder.svg" alt="Screenshot of Honours Project (TBA)">
+          </div>
+          <div class="row__text">
+            <p class="row__tag">University Honours Project</p>
+            <h3>Professional Project</h3>
+            <p>The culmination of 3 years of knowledge, to create a interesting 
+              game mechanic. (WIP)
+            </p>
+            <div class="row__stack">
+              <span>TBC</span><span>8 Months</span><span>PC</span>
+            </div>
+            <a class="row__link" href="#">To Be Completed</a>
+          </div>
+        </article>
+
+        <article class="row">
+          <div class="row__media">
+            <img src="assets/Dungeon_City.png" alt="Image of the Dungeon Part">
+          </div>
+          <div class="row__text">
+            <p class="row__tag">University Collaboration Game</p>
+            <h3>Dungeon City</h3>
+            <p>A 2 part game created as part of the third year project, which programmers, artists 
+              and designers collaborated on. Featuring a city builder portion, and a dungeon 
+              exploration and looting portion.</p>
+            <p>For this Project, I was mainly focused on the dungeon systems, such as the player, enemies and inventory.</p>
+            <div class="row__stack">
+              <span>Unity</span><span>4-5 Months</span><span>PC</span>
+            </div>
+            <a class="row__link" href="https://sleepy-cat-studios.itch.io/dungeon-city">View project →</a>
+          </div>
+        </article>
+
+        <article class="row">
+          <div class="row__media">
+            <img src="assets/Hunted_House.png" alt="Screenshot of the game">
+          </div>
+          <div class="row__text">
+            <p class="row__tag">University Game</p>
+            <h3>Hunted House</h3>
+            <p>A simple 3D game utilising the Playstation 5 Devkits. Featuring
+              2 player couch co-op, controller interactions and 3D physics with Jolt.</p>
+            <p>For this project, I was focused on the player movement and importing models, 
+              and main bug fixes when working on the devkits, and not the pc build.</p>
+            <div class="row__stack">
+              <span>Playstation 5 Devkits</span><span>3 Months</span><span>Playstation</span>
+            </div>
+            <a class="row__link" href="https://youtu.be/i-EXgWJ_Yxs">View project →</a>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Game Jams -->
+      <section class="panel" id="panel-mobile" role="tabpanel" hidden>
+
+        <article class="row">
+          <div class="row__media">
+            <img src="assets/AstroDash_GIF.gif" alt="Gameplay from Astrodash">
+          </div>
+          <div class="row__text">
+            <p class="row__tag">AGDS Spooky Jam 2025</p>
+            <h3>AstroDash</h3>
+            <p>A simple infinite runner, created as part of the AGDS Spooky Game Jam. 
+              Created to try out game engines prior to the year 3 project.
+            </p>
+            <div class="row__stack">
+              <span>Godot</span><span>48 Hours</span><span>PC</span>
+            </div>
+            <a class="row__link" href="https://sleepy-cat-studios.itch.io/astrodash">View project →</a>
+          </div>
+        </article>
+
+      </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Alex Walker.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

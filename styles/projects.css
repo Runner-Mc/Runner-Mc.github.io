@@ -1,0 +1,182 @@
+/* ==========================================================================
+   PROJECTS SECTION (page-specific)
+   Tabs + alternating image/text rows. Builds on tokens from main.css.
+   ========================================================================== */
+
+.projects {
+  max-width: var(--content-width);
+  margin: 56px auto 80px;
+  padding: 0 10px;
+}
+
+/* ---- frame (the whole "browser window" box) ---- */
+
+.projects__frame {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* ---- tabs (browser-tab strip along the top of the frame) ---- */
+
+.projects__tabs {
+  position: relative;
+  display: flex;
+  gap: 2px;
+  padding: 8px 5px 0;
+  background: var(--bg);
+  /*border-bottom: 1px solid var(--border);*/
+}
+
+.tab-indicator {
+  position: absolute;
+  top: 10px;
+  height: calc(100% - 10px);
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  transition: transform 0.32s cubic-bezier(0.65, 0, 0.35, 1),
+              width 0.32s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 10px 20px 12px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.tab:hover { color: var(--text); }
+
+.tab.is-active {
+  color: var(--accent);
+}
+
+/* ---- panel wrap / transition ---- */
+
+.projects__panel-wrap {
+  position: relative;
+  padding: 24px 32px 8px;
+}
+
+.panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.panel.is-active {
+  display: block;
+}
+
+.panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- rows ---- */
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.row:last-child { border-bottom: none; }
+
+/* zigzag: even rows reverse the visual order */
+.row:nth-child(even) .row__media { order: 2; }
+.row:nth-child(even) .row__text  { order: 1; }
+
+.row__media {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.row__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.row__tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
+.row__text h3 {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  margin: 0 0 12px;
+}
+
+.row__text p {
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  max-width: 46ch;
+}
+
+.row__stack {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.row__stack span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px 8px;
+}
+
+.row__link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 720px) {
+  .projects { padding: 0 20px; margin-top: 40px; }
+
+  .projects__tabs { gap: 0; padding: 8px 8px 0; }
+  .tab { flex: 1; text-align: center; padding: 10px 8px 12px; }
+
+  .projects__panel-wrap { padding: 20px 20px 8px; }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 28px 0;
+  }
+
+  /* stack image above text always on mobile, ignore zigzag order */
+  .row:nth-child(even) .row__media,
+  .row:nth-child(even) .row__text {
+    order: initial;
+  }
+}
